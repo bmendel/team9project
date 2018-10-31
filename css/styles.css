@@ -1,0 +1,30 @@
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.page-wrapper {
+    width: 90vw;
+    margin: 2em auto;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+h2 {
+    font-weight: 600;
+}
+
+form input {
+    margin: 6px auto !important;
+}
+
+.result-list {
+    list-style: none;
+}
+
+.result-item {
+    margin-bottom: 1.5em;
+}
