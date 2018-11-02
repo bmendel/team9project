@@ -3,6 +3,33 @@
   include './dbConnection.php';
   $dbConn = startConnection();
   include 'inc/functions_brett.php';
+  
+  function displayCategories() {
+    $categories = ['title', 'genre', 'director', 'runtime', 'year'];
+    foreach ($categories as $c) {
+      echo "<option value='bb_" . $c ."'>" . ucfirst($c) ."</option>";
+    }
+  }
+  
+  function displayResults() {
+    if(isset($_POST['submit'])) {
+      echo "<hr>";
+      echo "<h2>Films Found: </h2>";
+      echo "<ul class='result-list'>";
+      $results = getResults();
+      
+      foreach($results as $film) {
+        echo "<li class='result-item'>";
+        echo "<h4>".$film['bb_title']."</h4>";
+        echo "<span class='category'>Genre: </span><span>".$film['bb_genre']."</span><br>";
+        echo "<span class='category'>Director: </span><span>".$film['bb_director']."</span><br>";
+        echo "<span class='category'>Runtime: </span><span>".$film['bb_runtime']."</span><br>";
+        echo "<span class='category'>Year: </span><span>".$film['bb_year']."</span><br>";
+        echo "</li>";
+      }
+      echo "</ul>";
+    }
+  }
 ?>
 
 <!DOCTYPE html>
@@ -29,26 +56,17 @@
         Runtime<br>
         <div class="range">Min: <input type="number" size="3" name="timeMin">
         Max: <input type="number" size="4" name="timeMax"></div>
-        <br><input type="submit" name ="submit" value="search">
+        
+        Sort by: <select name="genreSort">
+          <option value=""> Select one </option>
+          <?=displayCategories()?>
+        </select><br>
+        <input type="radio" name="order" value="asc"> Ascending <br>
+        <input type="radio" name="order" value="desc"> Descending <br>
+        
+        <br><input type="submit" name ="submit" value="Search">
       </form>
-      <?php
-        if(isset($_POST['submit'])) {
-          echo "<hr>";
-          echo "<h2>Films Found: </h2>";
-          echo "<ul class='result-list'>";
-          $results = getResults();
-          foreach($results as $film) {
-            echo "<li class='result-item'>";
-            echo "<h4>".$film['bb_title']."</h4>";
-            echo "<span class='category'>Genre: </span><span>".$film['bb_genre']."</span><br>";
-            echo "<span class='category'>Director: </span><span>".$film['bb_director']."</span><br>";
-            echo "<span class='category'>Runtime: </span><span>".$film['bb_runtime']."</span><br>";
-            echo "<span class='category'>Year: </span><span>".$film['bb_year']."</span><br>";
-            echo "</li>";
-          }
-          echo "</ul>";
-        }
-      ?>
+      <?=displayResults()?>
     </div>
   </body>
 </html>

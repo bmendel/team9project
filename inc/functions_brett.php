@@ -15,6 +15,7 @@
   function getResults() {
     global $dbConn;
     if(!isset($_POST['submit'])) return;
+    
     $title = $_POST['title'];
     $director = $_POST['director'];
     $genre = $_POST['genre'];
@@ -22,20 +23,27 @@
     $yearMax = $_POST['yearMax'];
     $timeMin = $_POST['timeMin'];
     $timeMax = $_POST['timeMax'];
+    $genreSort = $_POST['genreSort'];
+    $order = $_POST['order'];
+    
     $np = array();
     $sql = "SELECT * FROM blockbuster WHERE 1";
+    
     if(!empty($_POST['title'])) {
-      $sql .= " bb_title LIKE :title";
+      $sql .= " AND bb_title LIKE :title";
       $np[':title'] = "%$title%";
     }
+    
     if(!empty($_POST['director'])) {
       $sql .= " AND bb_director LIKE :director";
       $np[':director'] = "%$director%";
     }
+    
     if(!empty($_POST['genre'])) {
       $sql .= " AND bb_genre = :genre";
       $np[':genre'] = $genre;
     }
+    
     if(!empty($_POST['yearMin']) || !empty($_POST['yearMax'])) {
       if(!empty($_POST['yearMin']) && !empty($_POST['yearMax'])) {
         $sql .= " AND bb_year BETWEEN :yearMin AND :yearMax";
@@ -49,6 +57,7 @@
         $np[':yearMax'] = $yearMax;
       }
     }
+    
     if(!empty($_POST['timeMin']) || !empty($_POST['timeMax'])) {
       if(!empty($_POST['timeMin']) && !empty($_POST['timeMax'])) {
         $sql .= " AND bb_runtime BETWEEN :timeMin AND :timeMax";
@@ -62,6 +71,19 @@
         $np[':timeMax'] = $timeMax;
       }
     }
+    
+    if (!empty($_POST['genreSort'])) {
+      $sql .= " ORDER BY " . $genreSort;
+      switch ($order) {
+        case "asc":
+          $sql .= " ASC";
+          break;
+        case "desc":
+          $sql .= " DESC";
+          break;
+      }
+    }
+    
     $stmt = $dbConn->prepare($sql);
     $stmt->execute($np);
     $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
