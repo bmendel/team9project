@@ -27,7 +27,7 @@
         echo "<img src='img/" . $film['bb_id'] . ".png' height='500'><br>";
         echo "<h4>".$film['bb_title']."</h4>";
         
-        echo '<form method=\'post\' action=\'inc/functions_maryann.php\'>';
+        echo '<form method=\'post\' action=\'cart.php\'>';
         echo '<input type=\'hidden\' name=\'addId\' value=\'' . $film['bb_id'] . '\'>';
         echo '<button>Add</button>';
         echo '</form>';

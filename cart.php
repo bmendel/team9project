@@ -11,7 +11,7 @@ include 'inc/functions_maryann.php';
     </head>
     <body>
         <header><h1><strong>Your Shopping Cart</strong></h1></header>
-        
+        <? addToCart(); ?>
         <? displayCart(); ?>
 
     </body>

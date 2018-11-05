@@ -2,13 +2,13 @@
 
     //connect to database
     session_start();
-    include './dbConnection.php';
+    include 'dbConnection.php';
     $dbConn = startConnection();
     
     
     //add function
     function addToCart(){
-        $id = $_POST['bb_id'];
+        $id = $_POST['addId'];
         array_push($_SESSION['cart'], $id);
     }
     
