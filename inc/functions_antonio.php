@@ -21,6 +21,11 @@
                     echo "<h3>Genre: ".$record['bb_genre']."</h3><br>";
                     
                     // form 
+                    echo '<form method=\'post\' action=\'../cart.php\'>';
+                    echo '<input type=\'hidden\' name=\'addId\' value=\'' . $record['bb_id'] . '\'>';
+                    echo '<button>Add To Cart</button>';
+                    echo '</form>';
+                    
                     echo '<form method=\'post\' action=\'../index.php\'>';
                     echo '<button>Back</button>';
                     echo '</form>';

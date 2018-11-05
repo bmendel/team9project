@@ -1,7 +1,13 @@
 <?php
-
-include 'inc/functions_maryann.php';
-
+    session_start();
+    include 'inc/functions_maryann.php';
+    
+    if (isset($_POST['addId'])) {
+        addToCart($_POST['addId']);
+    }
+    if (isset($_POST['deleteId'])) {
+        deleteItem($_POST['deleteId']);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -11,8 +17,12 @@ include 'inc/functions_maryann.php';
     </head>
     <body>
         <header><h1><strong>Your Shopping Cart</strong></h1></header>
-        <? addToCart(); ?>
-        <? displayCart(); ?>
+        
+        <?= displayCart() ?>
+        
+        <form method='post' action='index.php'>
+            <button>Back</button>
+        </form>
 
     </body>
 </html>
