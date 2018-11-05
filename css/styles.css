@@ -28,3 +28,11 @@ form input {
 .result-item {
     margin-bottom: 1.5em;
 }
+
+#movieInfo {
+    background-color: lightblue;
+    text-align: center;
+    border: 2px solid red;
+    padding: 25px;
+    margin: 25px;
+}

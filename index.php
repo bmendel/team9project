@@ -28,7 +28,7 @@
         echo '<button>Add</button>';
         echo '</form>';
         
-        echo '<form method=\'post\' action=\'functions_antonio.php\'>';
+        echo '<form method=\'post\' action=\'inc/functions_antonio.php\'>';
         echo '<input type=\'hidden\' name=\'infoId\' value=\'' . $film['bb_id'] . '\'>';
         echo '<button>Info</button>';
         echo '</form>';

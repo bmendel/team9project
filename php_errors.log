@@ -1,0 +1,20 @@
+[05-Nov-2018 20:40:50 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/teamProject2/team9project/inc/functions_antonio.php on line 9
+[05-Nov-2018 20:40:50 UTC] PHP Stack trace:
+[05-Nov-2018 20:40:50 UTC] PHP   1. {main}() /home/ubuntu/workspace/teamProject2/team9project/inc/functions_antonio.php:0
+[05-Nov-2018 20:40:50 UTC] PHP   2. displayMovieInfo() /home/ubuntu/workspace/teamProject2/team9project/inc/functions_antonio.php:36
+[05-Nov-2018 20:44:16 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/teamProject2/team9project/inc/functions_antonio.php on line 12
+[05-Nov-2018 20:44:16 UTC] PHP Stack trace:
+[05-Nov-2018 20:44:16 UTC] PHP   1. {main}() /home/ubuntu/workspace/teamProject2/team9project/inc/functions_antonio.php:0
+[05-Nov-2018 20:44:16 UTC] PHP   2. displayMovieInfo() /home/ubuntu/workspace/teamProject2/team9project/inc/functions_antonio.php:39
+[05-Nov-2018 20:45:17 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/teamProject2/team9project/inc/functions_antonio.php on line 13
+[05-Nov-2018 20:45:17 UTC] PHP Stack trace:
+[05-Nov-2018 20:45:17 UTC] PHP   1. {main}() /home/ubuntu/workspace/teamProject2/team9project/inc/functions_antonio.php:0
+[05-Nov-2018 20:45:17 UTC] PHP   2. displayMovieInfo() /home/ubuntu/workspace/teamProject2/team9project/inc/functions_antonio.php:40
+[05-Nov-2018 20:46:05 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/teamProject2/team9project/inc/functions_antonio.php on line 13
+[05-Nov-2018 20:46:05 UTC] PHP Stack trace:
+[05-Nov-2018 20:46:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/teamProject2/team9project/inc/functions_antonio.php:0
+[05-Nov-2018 20:46:05 UTC] PHP   2. displayMovieInfo() /home/ubuntu/workspace/teamProject2/team9project/inc/functions_antonio.php:40
+[05-Nov-2018 20:48:15 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/teamProject2/team9project/inc/functions_antonio.php on line 12
+[05-Nov-2018 20:48:15 UTC] PHP Stack trace:
+[05-Nov-2018 20:48:15 UTC] PHP   1. {main}() /home/ubuntu/workspace/teamProject2/team9project/inc/functions_antonio.php:0
+[05-Nov-2018 20:48:15 UTC] PHP   2. displayMovieInfo() /home/ubuntu/workspace/teamProject2/team9project/inc/functions_antonio.php:39
