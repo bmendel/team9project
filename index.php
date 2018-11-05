@@ -24,7 +24,7 @@
       
       foreach($results as $film) {
         echo "<li class='result-item'>";
-        echo "<img src='img/" . $film['bb_id'] . ".png'><br>";
+        echo "<img src='img/" . $film['bb_id'] . ".png' height='500'><br>";
         echo "<h4>".$film['bb_title']."</h4>";
         
         echo '<form method=\'post\' action=\'inc/functions_maryann.php\'>';
