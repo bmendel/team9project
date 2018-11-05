@@ -11,9 +11,8 @@
     //add function
     function addToCart(){
         global $cart;
-        $id = $_GET['bb_id'];
+        $id = $_POST['bb_id'];
         $cart[] = $id;
-        
     }
     
     //delete function

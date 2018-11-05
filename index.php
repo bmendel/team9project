@@ -20,11 +20,19 @@
       
       foreach($results as $film) {
         echo "<li class='result-item'>";
+        echo "<img src='img/" . $film['bb_id'] . ".png'><br>";
         echo "<h4>".$film['bb_title']."</h4>";
-        echo "<span class='category'>Genre: </span><span>".$film['bb_genre']."</span><br>";
-        echo "<span class='category'>Director: </span><span>".$film['bb_director']."</span><br>";
-        echo "<span class='category'>Runtime: </span><span>".$film['bb_runtime']."</span><br>";
-        echo "<span class='category'>Year: </span><span>".$film['bb_year']."</span><br>";
+        
+        echo '<form method=\'post\'>';
+        echo '<input type=\'hidden\' name=\'addId\' value=\'' . $film['bb_id'] . '\'>';
+        echo '<button>Add</button>';
+        echo '</form>';
+        
+        echo '<form method=\'post\'>';
+        echo '<input type=\'hidden\' name=\'infoId\' value=\'' . $film['bb_id'] . '\'>';
+        echo '<button>Info</button>';
+        echo '</form>';
+
         echo "</li>";
       }
       echo "</ul>";
