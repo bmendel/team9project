@@ -13,7 +13,8 @@
     }
     
     //delete function
-    function deleteItem(){
+    function deleteItem($i){
+        $i = array_search($id, $_SESSION['cart']);
         unset($_SESSION['cart'][$id]); //delete element
         array_values($_SESSION['cart']);
         
