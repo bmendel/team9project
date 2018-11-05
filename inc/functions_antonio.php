@@ -38,7 +38,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>Movie Info</title>
         <link rel="stylesheet" type="text/css" href="../css/styles.css"/>
     </head>
     <body>
