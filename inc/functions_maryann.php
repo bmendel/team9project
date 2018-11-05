@@ -1,7 +1,8 @@
 <?php
 
     //connect to database
-    include '../dbConnection.php';
+    session_start();
+    include './dbConnection.php';
     $dbConn = startConnection();
     
 
@@ -34,7 +35,6 @@
         }
     }
     
-    
     //displays individual movie
     function displayMovieInfo($movie){
         global $dbConn;
@@ -45,10 +45,13 @@
         foreach ($records as $record) {
             echo $record['bb_title'] . "<br>";
             echo "<img src='../img/". $movie .".png'> <br>";
-            echo $record['bb_year'];
+            echo $record['bb_year'] . "<br>";
+            echo "<button type = 'button' value ='". $movie. "'>Delete</button>";
         }
         
     }
 
-
 ?>
+
+
+
