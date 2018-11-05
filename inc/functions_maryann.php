@@ -5,21 +5,18 @@
     include './dbConnection.php';
     $dbConn = startConnection();
     
-
-    $cart = array(); //array that holds cart info
     
     //add function
     function addToCart(){
-        global $cart;
         $id = $_POST['bb_id'];
-        $cart[] = $id;
+        array_push($_SESSION['cart'], $id);
     }
     
     //delete function
     function deleteItem(){
         global $cart;
         unset($cart[$id]); //delete element
-        array_values(); //reorganizes indexes
+        unset($_SESSION['cart'][$id]);
         
     }
     
