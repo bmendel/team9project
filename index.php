@@ -4,6 +4,10 @@
   $dbConn = startConnection();
   include 'inc/functions_brett.php';
   
+  if (!isset($_SESSION['cart'])) {
+      $_SESSION['cart'] = array();
+  }
+  
   function displayCategories() {
     $categories = ['title', 'genre', 'director', 'runtime', 'year'];
     foreach ($categories as $c) {
@@ -23,12 +27,12 @@
         echo "<img src='img/" . $film['bb_id'] . ".png'><br>";
         echo "<h4>".$film['bb_title']."</h4>";
         
-        echo '<form method=\'post\' action=\'functions_maryann.php\'>';
+        echo '<form method=\'post\' action=\'inc/functions_maryann.php\'>';
         echo '<input type=\'hidden\' name=\'addId\' value=\'' . $film['bb_id'] . '\'>';
         echo '<button>Add</button>';
         echo '</form>';
         
-        echo '<form method=\'post\' action=\'functions_antonio.php\'>';
+        echo '<form method=\'post\' action=\'inc/functions_antonio.php\'>';
         echo '<input type=\'hidden\' name=\'infoId\' value=\'' . $film['bb_id'] . '\'>';
         echo '<button>Info</button>';
         echo '</form>';
