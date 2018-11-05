@@ -14,18 +14,16 @@
     
     //delete function
     function deleteItem(){
-        global $cart;
-        unset($cart[$id]); //delete element
-        unset($_SESSION['cart'][$id]);
+        unset($_SESSION['cart'][$id]); //delete element
+        array_values($_SESSION['cart']);
+        
         
     }
     
     //displays cart
     function displayCart(){
-        global $cart;
-        
-        for($i = 0; $i < sizeof($cart); $i++){
-            displayMovieInfo($cart[$i]);
+        for($i = 0; $i < sizeof($_SESSION['cart']); $i++){
+            displayMovieInfo($_SESSION['cart'][$i]);
             echo "<br><hr><br>";
         
         }
