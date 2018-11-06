@@ -2,31 +2,32 @@
 
     //connect to database
     session_start();
+
     include '../dbConnection.php';
     $dbConn = startConnection();
     
-    
     //add function
-    function addToCart(){
-        $id = $_POST['bb_id'];
+    function addToCart($id) {
+        foreach ($_SESSION['cart'] as $cartId) {
+            if ($id == $cartId) {
+                return;
+            }
+        }
         array_push($_SESSION['cart'], $id);
     }
     
     //delete function
-    function deleteItem($i){
+    function deleteItem($id){
         $i = array_search($id, $_SESSION['cart']);
-        unset($_SESSION['cart'][$id]); //delete element
+        unset($_SESSION['cart'][$i]); //delete element
         array_values($_SESSION['cart']);
-        
-        
     }
     
     //displays cart
     function displayCart(){
-        for($i = 0; $i < sizeof($_SESSION['cart']); $i++){
-            displayMovieInfo($_SESSION['cart'][$i]);
+        foreach($_SESSION['cart'] as $movie){
+            displayMovieInfo($movie);
             echo "<br><hr><br>";
-        
         }
     }
     
@@ -39,9 +40,18 @@
         $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($records as $record) {
             echo $record['bb_title'] . "<br>";
-            echo "<img src='../img/". $movie .".png'> <br>";
+            echo "<img src='img/". $movie .".png'> <br>";
             echo $record['bb_year'] . "<br>";
-            echo "<button type = 'button' value ='". $movie. "'>Delete</button>";
+            
+            echo "<form method='post' action='inc/functions_antonio.php'>";
+            echo "<input type='hidden' name='infoId' value ='". $movie . "'>";
+            echo "<button>Info</button>";
+            echo "</form>";
+            
+            echo "<form method='post' action='cart.php'>";
+            echo "<input type='hidden' name='deleteId' value ='". $movie . "'>";
+            echo "<button>Delete</button>";
+            echo "</form>";
         }
         
     }
