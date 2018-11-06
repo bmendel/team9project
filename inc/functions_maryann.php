@@ -2,35 +2,41 @@
 
     //connect to database
     session_start();
-    include './dbConnection.php';
+    include 'dbConnection.php';
     $dbConn = startConnection();
     
-
-    $cart = array(); //array that holds cart info
     
     //add function
-    function addToCart(){
-        global $cart;
-        $id = $_POST['bb_id'];
-        $cart[] = $id;
+    function addToCart($id) {
+        foreach ($_SESSION['cart'] as $cartId) {
+            if ($id == $cartId) {
+                return;
+            }
+        }
+        array_push($_SESSION['cart'], $id);
     }
     
     //delete function
-    function deleteItem(){
-        global $cart;
-        unset($cart[$id]); //delete element
-        array_values(); //reorganizes indexes
+    function deleteItem($id){
+        $i = array_search($id, $_SESSION['cart']);
+        unset($_SESSION['cart'][$i]); //delete element
+        array_values($_SESSION['cart']);
+    }
+    
+    function clearCart(){
+        unset($_SESSION['cart']);
         
     }
     
     //displays cart
     function displayCart(){
-        global $cart;
-        
-        for($i = 0; $i < sizeof($cart); $i++){
-            displayMovieInfo($cart[$i]);
+        if(sizeof($_SESSION['cart']) == 0){
+            echo "Your Cart is Empty.<br>";
+            return;
+        }
+        foreach($_SESSION['cart'] as $movie){
+            displayMovieInfo($movie);
             echo "<br><hr><br>";
-        
         }
     }
     
@@ -43,14 +49,22 @@
         $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($records as $record) {
             echo $record['bb_title'] . "<br>";
-            echo "<img src='../img/". $movie .".png'> <br>";
+            echo "<img src='img/". $movie .".png'> <br>";
             echo $record['bb_year'] . "<br>";
-            echo "<button type = 'button' value ='". $movie. "'>Delete</button>";
+            
+            echo "<form method='post' action='inc/functions_antonio.php'>";
+            echo "<input type='hidden' name='infoId' value ='". $movie . "'>";
+            echo "<button>Info</button>";
+            echo "</form>";
+            
+            echo "<form method='post' action='cart.php'>";
+            echo "<input type='hidden' name='deleteId' value ='". $movie . "'>";
+            echo "<button>Delete</button>";
+            echo "</form>";
         }
         
     }
 
 ?>
-
 
 
