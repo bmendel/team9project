@@ -2,7 +2,7 @@
 
     //connect to database
     session_start();
-    include 'dbConnection.php';
+    include '../dbConnection.php';
     $dbConn = startConnection();
     
     

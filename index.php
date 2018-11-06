@@ -28,7 +28,7 @@
         echo '<div class=\'info-container\'>';
         echo "<h4>".$film['bb_title']."</h4>";
         echo '<div class=\'action-container\'>';
-        echo '<form method=\'post\' action=\'inc/functions_maryann.php\'>';
+        echo '<form method=\'post\' action=\'cart.php\'>';
         echo '<input type=\'hidden\' name=\'addId\' value=\'' . $film['bb_id'] . '\'>';
         echo '<button class=\'btn-success\'>Add</button>';
         echo '</form>';
