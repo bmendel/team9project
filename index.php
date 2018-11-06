@@ -24,19 +24,21 @@
       
       foreach($results as $film) {
         echo "<li class='result-item'>";
-        echo "<img src='img/" . $film['bb_id'] . ".png' height='500'><br>";
+        echo "<img src='img/" . $film['bb_id'] . ".png'>";
+        echo '<div class=\'info-container\'>';
         echo "<h4>".$film['bb_title']."</h4>";
-        
-        echo '<form method=\'post\' action=\'cart.php\'>';
+        echo '<div class=\'action-container\'>';
+        echo '<form method=\'post\' action=\'inc/functions_maryann.php\'>';
         echo '<input type=\'hidden\' name=\'addId\' value=\'' . $film['bb_id'] . '\'>';
-        echo '<button>Add</button>';
+        echo '<button class=\'btn-success\'>Add</button>';
         echo '</form>';
         
         echo '<form method=\'post\' action=\'inc/functions_antonio.php\'>';
         echo '<input type=\'hidden\' name=\'infoId\' value=\'' . $film['bb_id'] . '\'>';
-        echo '<button>Info</button>';
+        echo '<button class=\'btn-info\'>Info</button>';
         echo '</form>';
-
+        echo '</div>';
+        echo '</div>';
         echo "</li>";
       }
       echo "</ul>";
@@ -76,7 +78,7 @@
         <input type="radio" name="order" value="asc"> Ascending <br>
         <input type="radio" name="order" value="desc"> Descending <br>
         
-        <br><input class="btn" type="submit" name ="submit" value="Search">
+        <br><input class="btn btn-default" type="submit" name ="submit" value="Search">
       </form>
     </div>
     <div class="result-wrapper">
