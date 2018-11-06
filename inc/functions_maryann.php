@@ -2,9 +2,9 @@
 
     //connect to database
     session_start();
-
-    include '../dbConnection.php';
+    include 'dbConnection.php';
     $dbConn = startConnection();
+    
     
     //add function
     function addToCart($id) {
@@ -23,8 +23,17 @@
         array_values($_SESSION['cart']);
     }
     
+    function clearCart(){
+        unset($_SESSION['cart']);
+        
+    }
+    
     //displays cart
     function displayCart(){
+        if(sizeof($_SESSION['cart']) == 0){
+            echo "Your Cart is Empty.<br>";
+            return;
+        }
         foreach($_SESSION['cart'] as $movie){
             displayMovieInfo($movie);
             echo "<br><hr><br>";
@@ -57,6 +66,5 @@
     }
 
 ?>
-
 
 

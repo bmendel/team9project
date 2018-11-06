@@ -8,6 +8,9 @@
     if (isset($_POST['deleteId'])) {
         deleteItem($_POST['deleteId']);
     }
+    if (isset($_POST['clearId'])) {
+        clearCart();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -20,9 +23,17 @@
         
         <?= displayCart() ?>
         
+        <br>
+        
         <form method='post' action='index.php'>
             <button>Back</button>
+            
         </form>
-
+        
+        <form method='post'>
+            <input type='hidden' name='clearId'>
+            <button>Clear Cart</button>
+        </form>
+        
     </body>
 </html>
