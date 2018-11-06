@@ -17,7 +17,7 @@
   
   function displayResults() {
     if(isset($_POST['submit'])) {
-      echo "<hr>";
+      // echo "<hr>";
       echo "<h2>Films Found: </h2>";
       echo "<ul class='result-list'>";
       $results = getResults();
@@ -53,7 +53,7 @@
     <link rel="stylesheet" type="text/css" href="./css/styles.css"/>
   </head>
   <body>
-    <div class="page-wrapper">
+    <div class="input-wrapper">
       <h1>Blockbuster</h1>
       <form method="post">
         Title: <input type="text" name="title"><br>
@@ -63,11 +63,11 @@
           <?=displayGenres()?>
         </select><br>
         Years<br>
-        <div class="range">Min: <input type="number" size="3" name="yearMin">
-        Max: <input type="number" size="4" name="yearMax"></div>
+        <div class="range">Min: <input type="number" size="4" min="1946" max="2018" name="yearMin">
+        Max: <input type="number" size="4" min="1946" max="2018" name="yearMax"></div>
         Runtime<br>
-        <div class="range">Min: <input type="number" size="3" name="timeMin">
-        Max: <input type="number" size="4" name="timeMax"></div>
+        <div class="range">Min: <input type="number" size="4" min="80" max="200" name="timeMin">
+        Max: <input type="number" size="4" min="80" max="200" name="timeMax"></div>
         
         Sort by: <select name="genreSort">
           <option value=""> Select one </option>
@@ -76,8 +76,10 @@
         <input type="radio" name="order" value="asc"> Ascending <br>
         <input type="radio" name="order" value="desc"> Descending <br>
         
-        <br><input type="submit" name ="submit" value="Search">
+        <br><input class="btn" type="submit" name ="submit" value="Search">
       </form>
+    </div>
+    <div class="result-wrapper">
       <?=displayResults()?>
     </div>
   </body>
