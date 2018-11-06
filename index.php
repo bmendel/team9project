@@ -17,7 +17,6 @@
   
   function displayResults() {
     if(isset($_POST['submit'])) {
-      // echo "<hr>";
       echo "<h2>Films Found: </h2>";
       echo "<ul class='result-list'>";
       $results = getResults();
@@ -32,13 +31,11 @@
         echo '<input type=\'hidden\' name=\'addId\' value=\'' . $film['bb_id'] . '\'>';
         echo '<button class=\'btn-success\'>Add</button>';
         echo '</form>';
-        
         echo '<form method=\'post\' action=\'inc/functions_antonio.php\'>';
         echo '<input type=\'hidden\' name=\'infoId\' value=\'' . $film['bb_id'] . '\'>';
         echo '<button class=\'btn-info\'>Info</button>';
         echo '</form>';
-        echo '</div>';
-        echo '</div>';
+        echo '</div></div>';
         echo "</li>";
       }
       echo "</ul>";
