@@ -12,7 +12,7 @@
             $stmt = $dbConn->prepare($sql);
             $stmt->execute();
             $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            echo "<div id='movieInfo'>";
+            echo "<div id='movieInfo' class='content-wrapper'>";
             foreach ($records as $record) {
                 if($id == $record['bb_id']){
                     echo "<img src='../img/".$record['bb_id'].".png' alt='".$record['bb_title']."'/>";
