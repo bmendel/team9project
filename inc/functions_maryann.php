@@ -2,9 +2,8 @@
 
     //connect to database
     session_start();
-    include '../dbConnection.php';
+    include './dbConnection.php';
     $dbConn = startConnection();
-    
     
     //add function
     function addToCart($id) {
@@ -36,8 +35,9 @@
         }
         foreach($_SESSION['cart'] as $movie){
             displayMovieInfo($movie);
-            echo "<br><hr><br>";
         }
+        $total = count($_SESSION['cart'])*9.99;
+        echo "<span class='cart-total'><strong>Total</strong>: \$".$total."</span>";
     }
     
     //displays individual movie
@@ -48,21 +48,27 @@
         $stmt->execute();
         $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($records as $record) {
-            echo $record['bb_title'] . "<br>";
-            echo "<img src='img/". $movie .".png'> <br>";
-            echo $record['bb_year'] . "<br>";
+            echo "<div class='cart-item'>";
+            echo "<img src='img/". $movie .".png'>";
+            echo "<div class='info-container'>";
+            echo "<h5>" . $record['bb_title'] . "</h5>";
+            echo "<p>" . $record['bb_genre'] . "</p>";
+            echo "<p>" . $record['bb_year'] . "</p>";
+            echo "<p>\$9.99</p>";
+            echo "</div>";
             
+            echo "<div class='actions'>";
             echo "<form method='post' action='inc/functions_antonio.php'>";
             echo "<input type='hidden' name='infoId' value ='". $movie . "'>";
-            echo "<button>Info</button>";
+            echo "<button class='btn-info'>Info</button>";
             echo "</form>";
             
             echo "<form method='post' action='cart.php'>";
             echo "<input type='hidden' name='deleteId' value ='". $movie . "'>";
-            echo "<button>Delete</button>";
+            echo "<button class='btn-danger'>Delete</button>";
             echo "</form>";
+            echo "</div></div>";
         }
-        
     }
 
 ?>
