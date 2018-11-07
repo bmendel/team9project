@@ -4,7 +4,7 @@ body {
     min-height: 100vh;
 }
 
-.input-wrapper, #info {
+.input-wrapper, #info, #cart {
     background-image: linear-gradient(#00000080, #00000080), url('../img/bg.jpg');
     background-size: cover;
     background-position: center;
@@ -35,6 +35,16 @@ h4 {
     margin-bottom: 0.25rem;
 }
 
+h5 {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+header h1 {
+    color: #fff;
+    margin-top: 0.75em;
+}
+
 form input,
 form select {
     margin: 6px auto !important;
@@ -55,7 +65,7 @@ input[type="number"] {
     margin-right: 0.5em !important;
 }
 
-#movieInfo {
+.content-wrapper {
     background: rgba(255,255,255,0.9);
     border-radius: 6px;
     box-shadow: 0 0 1px rgba(39,39,39,.2), 0 1px 12px rgba(39,39,39,.25);
@@ -63,17 +73,17 @@ input[type="number"] {
     margin: 3em;
 }
 
+.info-container {
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+}
+
 #movieInfo img {
     display: inline-block;
     height: 400px;
     width: auto;
     margin-right: 1.25em;
-}
-
-#movieInfo .info-container {
-    display: inline-block;
-    text-align: left;
-    vertical-align: top;
 }
 
 #movieInfo h2 {
@@ -98,6 +108,49 @@ input[type="number"] {
     margin-top: 1.5em;
 }
 
+.cart-item {
+    border-bottom: 1px solid #aaaaaa60;
+    margin-bottom: 1.25em;
+}
+
+.cart-item img {
+    display: inline-block;
+    height: 125px;
+    width: auto;
+    margin: 0 1.25em 0.75em 0.5em;
+}
+
+.cart-item p {
+    margin-bottom: 0.15em;
+}
+
+.cart-item .actions {
+    display: inline-block;
+    float: right;
+    margin-right: 1em;
+}
+
+.cart-item button {
+    font-size: 0.75em;
+}
+
+.cart-actions {
+    text-align: center;
+}
+
+.cart-actions form {
+    display: inline;
+}
+
+.cart-total {
+    display: block;
+    position: relative;
+    font-size: 1.2em;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+
 .result-wrapper {
     padding: 3em 7.5vw 3em;
 }
@@ -115,10 +168,6 @@ input[type="number"] {
     margin-right: 1em;
     margin-bottom: 1.5em;
     padding: 1em 1.5em;
-}
-
-.result-item:hover {
-    /*box-shadow: 0 0 1px rgba(39,39,39,.2), 0 1px 12px rgba(39,39,39,.25);*/
 }
 
 .result-item img {
@@ -149,7 +198,7 @@ input[type="number"] {
     text-decoration: none;
     text-transform: uppercase;
     text-shadow: 0 1px 1px rgba(0,0,0,0.6);
-    border: 1px solid #4565b5;
+    /*border: 1px solid #4565b5;*/
     border-radius: 50px;
     padding: 8px 18px;
     transition: all 350ms ease 0ms;
